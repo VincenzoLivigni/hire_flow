@@ -1,14 +1,18 @@
 const express = require("express")
 const db = require("./config/db")
 const authRoutes = require("./routes/authRoutes")
+const applicationsRoutes = require("./routes/applicationsRoutes")
+const cors = require("cors")
 
 const app = express()
 
+app.use(cors())
 // middleware per permettere al server di leggere JSON delle richieste
 app.use(express.json())
 
-// collegamento delle rotte di autenticazione
+// collegamento delle rotte API
 app.use("/api/auth", authRoutes)
+app.use("/api", applicationsRoutes)
 
 // test server
 app.get("/", (req, res) => {
@@ -18,7 +22,7 @@ app.get("/", (req, res) => {
 // connessione al database MySQL
 db.connect((err) => {
     if (err) {
-        console.log("Connessione al databaseb fallita!")
+        console.log("Connessione al database fallita!")
         return
     }
     console.log("Connessione al database riuscita!");
