@@ -20,6 +20,7 @@ export default function ApplicationCard({ application }) {
                 <p><strong>Link:</strong>
                     <Link to={application.link_job}>{application.link_job}</Link>
                 </p>
+                <p><strong>Note:</strong> {application.notes}</p>
             </div>
         </>
     )

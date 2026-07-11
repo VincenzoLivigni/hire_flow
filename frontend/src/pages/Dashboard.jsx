@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { getAllApplications } from "../services/api";
 import Header from "../components/Header";
 import ApplicationCard from "../components/ApplicationCard";
+import ApplicationForm from "../components/ApplicationForm";
 
 export default function Dashboard() {
 
@@ -40,6 +41,8 @@ export default function Dashboard() {
             <Header />
 
             <h1>Dashboard</h1>
+
+            <ApplicationForm onCreated={fetchApplications} />
 
             <div>
                 {
