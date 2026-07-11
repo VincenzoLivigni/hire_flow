@@ -24,6 +24,7 @@ export function GlobalProvider({ children }) {
         }
     }
 
+    // LOGOUT
     const logout = () => {
         localStorage.removeItem("token")
         setToken(null)
