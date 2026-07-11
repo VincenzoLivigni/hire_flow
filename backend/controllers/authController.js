@@ -13,7 +13,7 @@ exports.register = (req, res) => {
     // creo un hash della password per non salvarla in chiaro nel db
     const hashedPassword = bcrypt.hashSync(password, 12)
 
-    // salvo il nuovo utentne nel db
+    // salvo il nuovo utente nel db
     db.query(
         "INSERT INTO users (email, password) VALUES (?,?)",
         [email, hashedPassword],

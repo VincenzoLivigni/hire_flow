@@ -15,7 +15,7 @@ const authMiddleware = (req, res, next) => {
     }
 
     try {
-        // verifico che il token sia valido e recuper i dati utente
+        // verifico che il token sia valido e recupero i dati utente
         const userDecoded = jwt.verify(token, process.env.JWT_SECRET)
 
         req.user = userDecoded
