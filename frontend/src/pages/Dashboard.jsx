@@ -3,6 +3,7 @@ import { GlobalContext } from "../contexts/GlobalContext"
 import { useNavigate } from "react-router-dom"
 import { getAllApplications } from "../services/api";
 import Header from "../components/Header";
+import ApplicationCard from "../components/ApplicationCard";
 
 export default function Dashboard() {
 
@@ -44,8 +45,9 @@ export default function Dashboard() {
                 {
                     applications.map((a) => (
                         <div key={a.id}>
-                            <p>{a.company_name}</p>
-                            <p>{a.role}</p>
+                            <ApplicationCard
+                                application={a}
+                            />
                         </div>
                     ))
                 }
