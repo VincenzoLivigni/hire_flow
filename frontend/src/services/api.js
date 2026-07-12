@@ -38,6 +38,9 @@ export async function createApplication(company_name, role, location, notes, lin
 
     const data = await res.json()
 
+    console.log(res.status)
+    console.log(data)
+
     if (!res.ok) {
         throw new Error(data.message || "Azienda e posizione sono richiesti!")
     }

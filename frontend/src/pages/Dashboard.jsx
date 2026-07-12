@@ -14,27 +14,26 @@ export default function Dashboard() {
 
     const [applications, setApplications] = useState([])
 
+    async function fetchApplications() {
+        try {
+            const data = await getAllApplications()
+
+            setApplications(data)
+        }
+        catch (err) {
+            console.log("Error:", err)
+        }
+    }
+
     useEffect(() => {
         if (!token) {
             navigate("/")
             return
         }
 
-        async function fetchApplications() {
-            try {
-                const data = await getAllApplications()
-
-                setApplications(data)
-            }
-            catch (err) {
-                console.log("Error:", err)
-
-            }
-        }
-
         fetchApplications()
 
-    }, [token, navigate])
+    }, [token])
 
     return (
         <>
