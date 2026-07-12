@@ -14,6 +14,7 @@ export default function Dashboard() {
 
     const [applications, setApplications] = useState([])
 
+    // CREO UNA NUOVA APPLICATION
     async function fetchApplications() {
         try {
             const data = await getAllApplications()
@@ -49,6 +50,7 @@ export default function Dashboard() {
                         <div key={a.id}>
                             <ApplicationCard
                                 application={a}
+                                onDelete={fetchApplications}
                             />
                         </div>
                     ))
