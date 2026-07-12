@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { loginUser } from "../services/api";
+import { loginUser, registerUser } from "../services/api";
 
 export const GlobalContext = createContext()
 
@@ -8,6 +8,19 @@ export function GlobalProvider({ children }) {
     const [token, setToken] = useState(
         localStorage.getItem("token") || null
     )
+
+    // REGISTRAZIONE
+    const register = async (email, password) => {
+        try {
+            const data = await registerUser(email, password)
+
+            return data
+        }
+        catch (err) {
+            console.log("Error:", err)
+            throw err
+        }
+    }
 
     // LOGIN
     const login = async (email, password) => {

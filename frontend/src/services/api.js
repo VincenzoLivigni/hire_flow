@@ -1,5 +1,26 @@
 const API = "http://localhost:3000/api"
 
+// REGISTRAZIONE
+export async function registerUser(email, password) {
+    const res = await fetch(`${API}/auth/register`, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify({
+            email, password
+        })
+    })
+
+    const data = await res.json()
+
+    if (!res.ok) {
+        throw new Error(data.message || "Errore durante la registrazione")
+    }
+
+    return data
+}
+
 // LOGIN
 export async function loginUser(email, password) {
     const res = await fetch(`${API}/auth/login`, {

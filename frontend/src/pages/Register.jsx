@@ -2,14 +2,13 @@ import { useContext, useState } from "react"
 import { GlobalContext } from "../contexts/GlobalContext"
 import { useNavigate } from "react-router-dom"
 
-export default function Login() {
-
+export default function Register() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
-    const { login } = useContext(GlobalContext)
+    const { register } = useContext(GlobalContext)
 
     const navigate = useNavigate()
 
@@ -18,8 +17,8 @@ export default function Login() {
         setError("")
 
         try {
-            await login(email, password)
-            navigate("/dashboard")
+            await register(email, password)
+            navigate("/login")
         }
         catch (err) {
             setError(err.message)
@@ -27,8 +26,9 @@ export default function Login() {
     }
 
     return (
+
         <>
-            <h1>Login</h1>
+            <h1>Registrazione</h1>
 
             <form onSubmit={handleSubmit}>
                 <div>
@@ -51,12 +51,8 @@ export default function Login() {
                     />
                 </div>
 
-                <button type="submit">Login</button>
+                <button type="submit">Registrati</button>
             </form>
-
-            <div>
-                <p>Non hai un account? <Link to="/register">Registrati</Link> </p>
-            </div>
 
             {
                 error && <h3>{error}</h3>
