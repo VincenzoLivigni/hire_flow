@@ -35,58 +35,72 @@ export default function ApplicationForm({ onCreated }) {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Azienda</label>
-                    <input
-                        type="text"
-                        placeholder="Aggiungi azienda"
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                    />
-                </div>
+            <div className="application_container">
+                <form onSubmit={handleSubmit}>
+                    <div className="row">
+                        <div className="col-sm-12 col-md-6 col-lg-3">
+                            <div className="input_field">
+                                <input
+                                    type="text"
+                                    placeholder=" "
+                                    value={company}
+                                    onChange={(e) => setCompany(e.target.value)}
+                                />
+                                <label>Azienda</label>
+                            </div>
+                        </div>
 
-                <div>
-                    <label>Posizione</label>
-                    <input
-                        type="text"
-                        placeholder="Aggiungi posizione"
-                        value={role}
-                        onChange={(e) => setRole(e.target.value)}
-                    />
-                </div>
+                        <div className="col-sm-12 col-md-6 col-lg-3">
+                            <div className="input_field">
+                                <input
+                                    type="text"
+                                    placeholder=" "
+                                    value={role}
+                                    onChange={(e) => setRole(e.target.value)}
+                                />
+                                <label>Posizione</label>
+                            </div>
+                        </div>
 
-                <div>
-                    <label>Luogo</label>
-                    <input
-                        type="text"
-                        placeholder="Aggiungi luogo"
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                    />
-                </div>
+                        <div className="col-sm-12 col-md-6 col-lg-3">
+                            <div className="input_field">
+                                <input
+                                    type="text"
+                                    placeholder=" "
+                                    value={location}
+                                    onChange={(e) => setLocation(e.target.value)}
+                                />
+                                <label>Luogo</label>
+                            </div>
+                        </div>
 
-                <div>
-                    <label>Link candidatura</label>
-                    <input
-                        type="text"
-                        placeholder="Aggiungi link candidatura"
-                        value={link_job}
-                        onChange={(e) => setLink_job(e.target.value)}
-                    />
-                </div>
+                        <div className="col-sm-12 col-md-6 col-lg-3">
+                            <div className="input_field">
+                                <input
+                                    type="text"
+                                    placeholder=" "
+                                    value={link_job}
+                                    onChange={(e) => setLink_job(e.target.value)}
+                                />
+                                <label>Link candidatura</label>
+                            </div>
+                        </div>
+                    </div>
 
-                <div>
-                    <label>Note</label>
-                    <textarea
-                        placeholder="Aggiungi note"
-                        value={notes}
-                        onChange={(e) => setNotes(e.target.value)}
-                    />
-                </div>
+                    <div className="form_application_bottom">
+                        <div className="input_field">
+                            <textarea
+                                placeholder=" "
+                                value={notes}
+                                onChange={(e) => setNotes(e.target.value)}
+                            />
+                            <label>Note</label>
+                        </div>
+                    </div>
 
-                <button type="submit">Aggiungi candidatura</button>
-            </form>
+                    <button className="primary_button" type="submit">Aggiungi candidatura</button>
+                </form>
+            </div>
         </>
     )
 }

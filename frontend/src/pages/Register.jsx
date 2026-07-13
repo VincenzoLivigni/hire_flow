@@ -36,17 +36,17 @@ export default function Register() {
                 }
 
                 <form onSubmit={handleSubmit}>
-                    <div className="input_register">
+                    <div className="input_field">
                         <input
                             type="email"
                             placeholder=" "
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                        <label htmlFor="email">Email</label>
+                        <label>Email</label>
                     </div>
 
-                    <div className="input_register">
+                    <div className="input_field">
                         <input
                             type="password"
                             placeholder=" "
@@ -56,7 +56,7 @@ export default function Register() {
                         <label>Password</label>
                     </div>
 
-                    <button type="submit">Registrati</button>
+                    <button className="primary_button" type="submit">Registrati</button>
                 </form>
             </div>
         </>

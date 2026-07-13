@@ -23,18 +23,68 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
-/* ##### UTILS ##### */
+/* ##### COMPONENTI COMUNI ##### */
 
 /* buttons */
-button {
+.primary_button {
+    font-weight: 700;
+    background-color: #4f46e5;
+    color: white;
     border: none;
+    border-radius: 12px;
+    padding: 0.65rem 1rem;
     cursor: pointer;
     transition: 0.2s;
 }
 
-button:hover {
+.primary_button:hover {
     transform: translateY(-2px);
     opacity: 0.9;
+}
+
+.input_field {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.input_field input,
+.input_field textarea {
+    font-size: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.input_field label {
+    font-weight: 700;
+    background-color: white;
+    padding: 0 0.25rem;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.input_field input:focus,
+.input_field textarea:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(70, 70, 230, 0.25);
+}
+
+.input_field input:focus+label,
+.input_field input:not(:placeholder-shown)+label,
+.input_field textarea:focus+label,
+.input_field textarea:not(:placeholder-shown)+label {
+    font-size: 0.8rem;
+    color: #4f46e5;
+    top: 0;
+    transform: translateY(-50%);
 }
 
 /* ##### AUTENTICAZIONE ##### */
@@ -54,69 +104,6 @@ button:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-.input_register,
-.input_login {
-    margin-bottom: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.input_register input,
-.input_login input {
-    font-size: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    padding: 1rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-}
-
-.input_register label,
-.input_login label {
-    font-weight: 700;
-    background-color: white;
-    padding: 0 0.25rem;
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.5s ease;
-    pointer-events: none;
-}
-
-.input_register input:focus,
-.input_login input:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 2px rgba(70, 70, 230, 0.25);
-}
-
-.input_register input:focus+label,
-.input_register input:not(:placeholder-shown)+label,
-.input_login input:focus+label,
-.input_login input:not(:placeholder-shown)+label {
-    font-size: 0.8rem;
-    color: #4f46e5;
-    top: 0;
-    transform: translateY(-50%);
-}
-
-.register_container button,
-.login_container button {
-    font-weight: 700;
-    background-color: #4f46e5;
-    color: white;
-    border-radius: 12px;
-    padding: 0.65rem 1rem;
-}
-
-/* errori */
-.register_error,
-.login_error {
-    color: #ef4444;
-    margin-top: 1.25rem;
-}
-
 /* link alla regitrazione */
 .auth_link {
     margin: 0.75rem 0 0 0.25rem;
@@ -130,4 +117,27 @@ button:hover {
 
 .auth_link a:hover {
     opacity: 0.85;
+}
+
+/* errori */
+.register_error,
+.login_error {
+    color: #ef4444;
+    margin-top: 1.25rem;
+}
+
+/* ##### DASHBOARD ##### */
+
+/* form candidatura */
+.application_container {
+    max-width: 100%;
+    margin: 3.75rem auto;
+}
+
+.application_container form {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }

@@ -36,7 +36,7 @@ export default function Login() {
                 }
 
                 <form onSubmit={handleSubmit}>
-                    <div className="input_login">
+                    <div className="input_field">
                         <input
                             type="email"
                             placeholder=" "
@@ -46,7 +46,7 @@ export default function Login() {
                         <label>Email</label>
                     </div>
 
-                    <div className="input_login">
+                    <div className="input_field">
                         <input
                             type="password"
                             placeholder=" "
@@ -56,7 +56,7 @@ export default function Login() {
                         <label>Password</label>
                     </div>
 
-                    <button type="submit">Login</button>
+                    <button className="primary_button" type="submit">Login</button>
                 </form>
 
                 <div className="auth_link">
