@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { GlobalContext } from "../contexts/GlobalContext"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Login() {
 
@@ -28,39 +28,41 @@ export default function Login() {
 
     return (
         <>
-            <h1>Login</h1>
+            <div className="login_container">
+                <h1>Login</h1>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        placeholder="Inserisci email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
+                {
+                    error && <h3 className="login_error">{error}</h3>
+                }
+
+                <form onSubmit={handleSubmit}>
+                    <div className="input_login">
+                        <input
+                            type="email"
+                            placeholder=" "
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <label>Email</label>
+                    </div>
+
+                    <div className="input_login">
+                        <input
+                            type="password"
+                            placeholder=" "
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <label>Password</label>
+                    </div>
+
+                    <button type="submit">Login</button>
+                </form>
+
+                <div className="auth_link">
+                    <p>Non hai un account? <Link to="/register">Registrati</Link> </p>
                 </div>
-
-                <div>
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        placeholder="Inserisci password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-
-                <button type="submit">Login</button>
-            </form>
-
-            <div>
-                <p>Non hai un account? <Link to="/register">Registrati</Link> </p>
             </div>
-
-            {
-                error && <h3>{error}</h3>
-            }
         </>
     )
 }
