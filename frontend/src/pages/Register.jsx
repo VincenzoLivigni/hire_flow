@@ -18,7 +18,7 @@ export default function Register() {
 
         try {
             await register(email, password)
-            navigate("/login")
+            navigate("/")
         }
         catch (err) {
             setError(err.message)
@@ -28,35 +28,37 @@ export default function Register() {
     return (
 
         <>
-            <h1>Registrazione</h1>
+            <div className="register_container">
+                <h1>Registrazione</h1>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        placeholder="Inserisci email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
+                {
+                    error && <h3 className="register_error">{error}</h3>
+                }
 
-                <div>
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        placeholder="Inserisci password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
+                <form onSubmit={handleSubmit}>
+                    <div className="input_register">
+                        <input
+                            type="email"
+                            placeholder=" "
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <label htmlFor="email">Email</label>
+                    </div>
 
-                <button type="submit">Registrati</button>
-            </form>
+                    <div className="input_register">
+                        <input
+                            type="password"
+                            placeholder=" "
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <label>Password</label>
+                    </div>
 
-            {
-                error && <h3>{error}</h3>
-            }
+                    <button type="submit">Registrati</button>
+                </form>
+            </div>
         </>
     )
 }
