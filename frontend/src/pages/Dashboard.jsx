@@ -61,8 +61,6 @@ export default function Dashboard() {
         <>
             <Header />
 
-            <h1>Dashboard</h1>
-
             <ApplicationForm onCreated={fetchApplications} />
 
             <ApplicationFilters

@@ -1,4 +1,5 @@
 @import url(bootstrap);
+@import url(bootstrap-icons);
 
 /* ##### GENERICS ##### */
 
@@ -26,7 +27,8 @@ h1 {
 /* ##### COMPONENTI COMUNI ##### */
 
 /* buttons */
-.primary_button {
+.primary_button,
+.danger_button {
     font-weight: 700;
     background-color: #4f46e5;
     color: white;
@@ -37,7 +39,8 @@ h1 {
     transition: 0.2s;
 }
 
-.primary_button:hover {
+.primary_button:hover,
+.danger_button:hover {
     transform: translateY(-2px);
     opacity: 0.9;
 }
@@ -87,6 +90,65 @@ h1 {
     transform: translateY(-50%);
 }
 
+/* ##### HEADER ##### */
+.app_navbar {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* link */
+.app_navbar a {
+    font-size: 1.35rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #1f2937;
+}
+
+.app_navbar a:hover {
+    opacity: 0.9;
+}
+
+.app_navbar .active {
+    color: #1f2937;
+}
+
+/* logo */
+.app_navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.logo i {
+    font-size: 1.3rem;
+    margin-top: 2px;
+}
+
+/* logout */
+.danger_button {
+    font-size: 1.15rem;
+    background-color: #ef4444;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.logout_icon {
+    font-size: 1.15rem;
+}
+
+
 /* ##### AUTENTICAZIONE ##### */
 .register_container,
 .login_container {
@@ -131,7 +193,7 @@ h1 {
 /* form candidatura */
 .application_container {
     max-width: 100%;
-    margin: 3.75rem auto;
+    margin: 1.5rem auto;
 }
 
 .application_container form {

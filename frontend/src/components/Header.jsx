@@ -12,9 +12,20 @@ export default function Header() {
     return (
         <>
             <header>
-                <nav>
+                <nav className="app_navbar">
+                    <NavLink to="/dashboard" className="logo">
+                        <i className="bi bi-briefcase-fill"></i>
+                        HireFlow
+                    </NavLink>
+
                     <NavLink to="/dashboard">Dashboard</NavLink>
-                    <button onClick={logout}>Logout</button>
+
+                    <div>
+                        <button onClick={logout} className="danger_button">
+                            <i className="bi bi-box-arrow-left logout_icon"></i>
+                            Logout
+                        </button>
+                    </div>
                 </nav>
             </header>
         </>
