@@ -57,6 +57,14 @@ export default function Dashboard() {
         ...new Set(applications.map((a) => a.location))
     ]
 
+    // Reset filtri
+    function resetFilters() {
+        setSearchCompany("")
+        setSearchRole("")
+        setFilterLocation("Tutti")
+        setFilterStatus("Tutti")
+    }
+
     return (
         <>
             <Header />
@@ -73,6 +81,7 @@ export default function Dashboard() {
                 filterStatus={filterStatus}
                 setFilterStatus={setFilterStatus}
                 locations={locations}
+                resetFilters={resetFilters}
             />
 
             <div>

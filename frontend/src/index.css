@@ -28,6 +28,7 @@ h1 {
 
 /* buttons */
 .primary_button,
+.secondary_button,
 .danger_button {
     font-weight: 700;
     background-color: #4f46e5;
@@ -40,6 +41,7 @@ h1 {
 }
 
 .primary_button:hover,
+.secondary_button:hover,
 .danger_button:hover {
     transform: translateY(-2px);
     opacity: 0.9;
@@ -53,6 +55,7 @@ h1 {
 }
 
 .input_field input,
+.input_field select,
 .input_field textarea {
     font-size: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.25);
@@ -75,6 +78,7 @@ h1 {
 }
 
 .input_field input:focus,
+.input_field select:focus,
 .input_field textarea:focus {
     border-color: #4f46e5;
     box-shadow: 0 0 0 2px rgba(70, 70, 230, 0.25);
@@ -82,11 +86,13 @@ h1 {
 
 .input_field input:focus+label,
 .input_field input:not(:placeholder-shown)+label,
+.input_field select:focus+label,
+.input_field select.has_value+label,
 .input_field textarea:focus+label,
 .input_field textarea:not(:placeholder-shown)+label {
     font-size: 0.8rem;
     color: #4f46e5;
-    top: 0;
+    top: 0rem;
     transform: translateY(-50%);
 }
 
@@ -190,16 +196,22 @@ h1 {
 
 /* ##### DASHBOARD ##### */
 
-/* form candidatura */
+/* form candidatura + filtri */
 .application_container {
     max-width: 100%;
     margin: 1.5rem auto;
 }
 
-.application_container form {
+.application_container form,
+.application_container .filters {
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 16px;
     padding: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* reset */
+.secondary_button {
+    background-color: #8f8fa0;
 }
