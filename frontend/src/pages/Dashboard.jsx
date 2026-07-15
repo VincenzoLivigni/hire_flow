@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import ApplicationForm from "../components/ApplicationForm";
 import ApplicationFilters from "../components/ApplicationFilters";
 import ApplicationBoard from "../components/ApplicationBoard";
+import Footer from "../components/Footer";
 
 export default function Dashboard() {
 
@@ -89,6 +90,8 @@ export default function Dashboard() {
                 onUpdate={fetchApplications}
                 onDelete={fetchApplications}
             />
+
+            <Footer />
         </>
     )
 }

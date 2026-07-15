@@ -271,23 +271,23 @@ h1 {
 /* colori status card */
 
 .application_card.applied {
-    border-right: 3px solid #a09fc096;
-    border-bottom: 3px solid #a09fc096;
+    border-right: 4px solid #a09fc096;
+    border-bottom: 4px solid #a09fc096;
 }
 
 .application_card.interview {
-    border-right: 3px solid #d6d85d96;
-    border-bottom: 3px solid #d6d85d96;
+    border-right: 4px solid #d6d85d96;
+    border-bottom: 4px solid #d6d85d96;
 }
 
 .application_card.offer {
-    border-right: 3px solid #5dd88896;
-    border-bottom: 3px solid #5dd88896;
+    border-right: 4px solid #5dd88896;
+    border-bottom: 4px solid #5dd88896;
 }
 
 .application_card.rejected {
-    border-right: 3px solid #ef444496;
-    border-bottom: 3px solid #ef444496;
+    border-right: 4px solid #ef444496;
+    border-bottom: 4px solid #ef444496;
 }
 
 /* azienda */
@@ -440,4 +440,59 @@ h1 {
 .delete_alert .modal_actions {
     margin-top: 2rem;
     justify-content: center;
+}
+
+/* ##### FOOTER ##### */
+footer {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* logo */
+.footer_left .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #4f46e5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer_left .logo:hover {
+    opacity: 0.9;
+}
+
+/* copyright */
+footer span {
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 500;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* social */
+.footer_social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer_social a {
+    font-size: 1.25rem;
+    color: #7070ff;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.footer_social a:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
