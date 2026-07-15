@@ -18,11 +18,19 @@ export default function DeleteApplicationModal({ application, onClose, onDelete 
 
     return (
         <>
-            <div className="alert alert-danger">
-                <p>Vuoi eliminare questa candidatura?</p>
+            <div className="modal_overlay">
+                <div className="modal_container">
 
-                <button onClick={handleDelete}>Conferm</button>
-                <button onClick={onClose}>Annulla</button>
+                    <div className="delete_alert">
+                        <h5>Sei sicuro di voler eliminare la candidatura presso <strong>{application.company_name}</strong>?</h5>
+
+                        <div className="modal_actions">
+                            <button onClick={handleDelete} className="danger_button">Elimina</button>
+                            <button onClick={onClose} className="secondary_button">Annulla</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </>
     )

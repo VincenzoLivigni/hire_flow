@@ -384,3 +384,60 @@ h1 {
     padding: 0.5rem 0.75rem;
     flex: 1;
 }
+
+/* ##### MODALI #####*/
+
+/* modale modifica candidatura */
+.modal_container {
+    width: min(800px, 90%);
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    animation: modalShow 0.3s ease;
+}
+
+@keyframes modalShow {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal_overlay {
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    inset: 0;
+}
+
+.modal_overlay .input_field {
+    margin-top: 0.5rem;
+}
+
+.modal_overlay .modal_actions {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem
+}
+
+/* modale elimina candidatura */
+.delete_alert {
+    text-align: center;
+}
+
+.delete_alert .modal_actions {
+    margin-top: 2rem;
+    justify-content: center;
+}
