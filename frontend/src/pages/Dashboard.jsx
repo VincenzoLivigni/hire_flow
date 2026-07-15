@@ -84,21 +84,96 @@ export default function Dashboard() {
                 resetFilters={resetFilters}
             />
 
-            <div>
-                {
-                    filteredApplications.length > 0 ? (
-                        filteredApplications.map((a) => (
-                            <div key={a.id}>
-                                <ApplicationCard
-                                    application={a}
-                                    onDelete={fetchApplications}
-                                />
-                            </div>
-                        ))
-                    ) : (
-                        <h4>Nessuna Candidatura trovata</h4>
-                    )
-                }
+            <div className="board">
+
+                {/* intestazioni */}
+                <div className="columns">
+                    <div className="column_header">
+                        <h4>Candidatura inviata</h4>
+                    </div>
+
+                    <div className="column_header">
+                        <h4>Colloquio</h4>
+                    </div>
+
+                    <div className="column_header">
+                        <h4>Offerta ricevuta</h4>
+                    </div>
+
+                    <div className="column_header">
+                        <h4>Rifiutata</h4>
+                    </div>
+                </div>
+
+
+                {/* contenuto dlle colonne */}
+                <div className="columns_body">
+
+                    {/* colonne "candidature inviate" */}
+                    <div className="column">
+                        {
+                            filteredApplications
+                                .filter(a => a.status === "applied")
+                                .map(a => (
+                                    <ApplicationCard
+                                        key={a.id}
+                                        application={a}
+                                        onDelete={fetchApplications}
+                                        onUpdate={fetchApplications}
+                                    />
+                                ))
+                        }
+                    </div>
+
+                    {/* colonna "colloquio" */}
+                    <div className="column">
+                        {
+                            filteredApplications
+                                .filter(a => a.status === "interview")
+                                .map(a => (
+                                    <ApplicationCard
+                                        key={a.id}
+                                        application={a}
+                                        onDelete={fetchApplications}
+                                        onUpdate={fetchApplications}
+                                    />
+                                ))
+                        }
+                    </div>
+
+                    {/* colonna "offerte ricevute" */}
+                    <div className="column">
+                        {
+                            filteredApplications
+                                .filter(a => a.status === "offer")
+                                .map(a => (
+                                    <ApplicationCard
+                                        key={a.id}
+                                        application={a}
+                                        onDelete={fetchApplications}
+                                        onUpdate={fetchApplications}
+                                    />
+                                ))
+                        }
+                    </div>
+
+                    {/* colonna "rifiutata" */}
+                    <div className="column">
+                        {
+                            filteredApplications
+                                .filter(a => a.status === "rejected")
+                                .map(a => (
+                                    <ApplicationCard
+                                        key={a.id}
+                                        application={a}
+                                        onDelete={fetchApplications}
+                                        onUpdate={fetchApplications}
+                                    />
+                                ))
+                        }
+                    </div>
+
+                </div>
             </div>
         </>
     )

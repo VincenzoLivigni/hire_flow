@@ -1,16 +1,8 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import DeleteApplicationModal from "./DeleteApplicationModal";
 import EditApplicationModal from "./EditApplicationModal";
 
 export default function ApplicationCard({ application, onDelete, onUpdate }) {
-
-    const statusLabels = {
-        applied: "Candidatura inviata",
-        interview: "Colloquio",
-        offer: "Offerta ricevuta",
-        rejected: "Rifiutata"
-    }
 
     // MODIFICO UNA APPLICATION
     const [editApplication, setEditApplication] = useState(false)
@@ -18,23 +10,57 @@ export default function ApplicationCard({ application, onDelete, onUpdate }) {
     // ELIMINO UNA APPLICATION
     const [confirmDelete, setConfirmDelete] = useState(false)
 
+    // note
+    const [showNotes, setShowNotes] = useState(false)
+
     return (
         <>
-            <div className="card">
+            <div className={`application_card ${application.status}`}>
+
+                {/* azienda */}
                 <h3>{application.company_name}</h3>
 
-                <p><strong>Posizione:</strong> {application.role}</p>
-                <p><strong>Luogo:</strong> {application.location}</p>
-                <p><strong>Stato:</strong> {statusLabels[application.status]}</p>
-                <p><strong>Link:</strong>
-                    <Link to={application.link_job}>{application.link_job}</Link>
+                {/* posizione */}
+                <p>
+                    <strong>Posizione:</strong> {application.role}
                 </p>
-                <p><strong>Note:</strong> {application.notes}</p>
 
-                <div>
-                    <button onClick={() => setEditApplication(true)}>Modifica</button>
-                    <button onClick={() => setConfirmDelete(true)}>Elimina</button>
+                {/* luogo */}
+                <p>
+                    <strong>Luogo:</strong> {application.location}
+                </p>
+
+                {/* link alla candidatura */}
+                <p>
+                    <strong>Link: </strong>
+                    <a href={application.link_job} target="_blank">Visualizza offerta</a>
+                </p>
+
+                {/* note */}
+                <div className="notes">
+
+                    <button className={`notes_toggle ${showNotes ? "open" : ""}`} onClick={() => setShowNotes(!showNotes)}>
+                        Note
+                        <i className="bi bi-chevron-down"></i>
+                    </button>
+
+                    <div className={`notes_box ${showNotes ? "show" : ""}`}>
+                        <p>{application.notes || "Nessuna nota"}</p>
+                    </div>
+
                 </div>
+
+                {/* azioni */}
+                <div className="card_actions">
+                    <button className="primary_button" onClick={() => setEditApplication(true)}>
+                        Modifica
+                    </button>
+
+                    <button className="danger_button" onClick={() => setConfirmDelete(true)}>
+                        Elimina
+                    </button>
+                </div>
+
             </div>
 
             {
