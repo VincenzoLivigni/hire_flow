@@ -36,6 +36,9 @@ export default function ApplicationForm({ onCreated }) {
     return (
         <>
             <div className="application_container">
+
+                <h2 className="section_title">Aggiungi candidatura</h2>
+
                 <form onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-sm-12 col-md-6 col-lg-3">
@@ -101,7 +104,7 @@ export default function ApplicationForm({ onCreated }) {
                     </div>
 
                     <div className="col-sm-12 col-md-6 col-lg-3">
-                        <button className="primary_button" type="submit">Aggiungi candidatura</button>
+                        <button className="primary_button" type="submit">Aggiungi</button>
                     </div>
                 </form>
             </div>

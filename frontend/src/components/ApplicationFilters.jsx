@@ -14,6 +14,9 @@ export default function ApplicationFilters({
     return (
         <>
             <div className="application_container">
+
+                <h2 className="section_title">Filtri</h2>
+
                 <div className="filters">
                     <div className="row">
                         <div className="col-sm-12 col-md-6 col-lg-3">
