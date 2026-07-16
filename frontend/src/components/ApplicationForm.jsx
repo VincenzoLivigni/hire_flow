@@ -88,17 +88,21 @@ export default function ApplicationForm({ onCreated }) {
                     </div>
 
                     <div className="form_application_bottom">
-                        <div className="input_field">
-                            <textarea
-                                placeholder=" "
-                                value={notes}
-                                onChange={(e) => setNotes(e.target.value)}
-                            />
-                            <label>Note</label>
+                        <div className="col-12">
+                            <div className="input_field">
+                                <textarea
+                                    placeholder=" "
+                                    value={notes}
+                                    onChange={(e) => setNotes(e.target.value)}
+                                />
+                                <label>Note</label>
+                            </div>
                         </div>
                     </div>
 
-                    <button className="primary_button" type="submit">Aggiungi candidatura</button>
+                    <div className="col-sm-12 col-md-6 col-lg-3">
+                        <button className="primary_button" type="submit">Aggiungi candidatura</button>
+                    </div>
                 </form>
             </div>
         </>

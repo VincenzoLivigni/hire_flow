@@ -26,27 +26,22 @@ export default function ApplicationBoard({ applications, onDelete, onUpdate }) {
             <div className="board">
 
                 {/* intestazioni */}
-                <div className="columns">
+                <div className="board_columns">
                     {
                         columns.map((column) => (
-                            <div key={column.status} className="column_header">
-                                <h4>{column.title}</h4>
-                            </div>
-                        ))
-                    }
-                </div>
+                            <div key={column.status} className={`column_wrapper ${column.status}`}>
+                                <div className="column_header">
+                                    <h4>{column.title}</h4>
+                                </div>
 
-                {/* contenuto dlle colonne */}
-                <div className="columns_body">
-                    {
-                        columns.map((column) => (
-                            <ApplicationColumn
-                                key={column.status}
-                                status={column.status}
-                                applications={applications}
-                                onUpdate={onUpdate}
-                                onDelete={onDelete}
-                            />
+                                <ApplicationColumn
+                                    key={column.status}
+                                    status={column.status}
+                                    applications={applications}
+                                    onUpdate={onUpdate}
+                                    onDelete={onDelete}
+                                />
+                            </div>
                         ))
                     }
                 </div>
