@@ -17,12 +17,27 @@ export default function Login() {
         e.preventDefault()
         setError("")
 
+        if (!email.trim()) {
+            setError("Compila il campo email!")
+            return
+        }
+
+        if (!password.trim()) {
+            setError("Compila il campo password!")
+            return
+        }
+
+        if (password.length < 6) {
+            setError("La password deve contenere almeno 6 caratteri!")
+            return
+        }
+
         try {
             await login(email, password)
             navigate("/dashboard")
         }
         catch (err) {
-            setError(err.message)
+            setError(err.message || "Login non riuscito")
         }
     }
 
@@ -31,11 +46,12 @@ export default function Login() {
             <div className="login_container">
                 <h1>Login</h1>
 
-                {
-                    error && <h3 className="login_error">{error}</h3>
-                }
-
                 <form onSubmit={handleSubmit}>
+
+                    {
+                        error && <h3 className="login_error">{error}</h3>
+                    }
+
                     <div className="input_field">
                         <input
                             type="email"

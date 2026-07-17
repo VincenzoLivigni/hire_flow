@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { GlobalContext } from "../contexts/GlobalContext"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Register() {
 
@@ -16,12 +16,27 @@ export default function Register() {
         e.preventDefault()
         setError("")
 
+        if (!email.trim()) {
+            setError("Compila il campo email!")
+            return
+        }
+
+        if (!password.trim()) {
+            setError("Compila il campo password!")
+            return
+        }
+
+        if (password.length < 6) {
+            setError("La password deve contenere almeno 6 caratteri!")
+            return
+        }
+
         try {
             await register(email, password)
             navigate("/")
         }
         catch (err) {
-            setError(err.message)
+            setError(err.message || "Registrazione non riuscita")
         }
     }
 
@@ -31,11 +46,11 @@ export default function Register() {
             <div className="register_container">
                 <h1>Registrazione</h1>
 
-                {
-                    error && <h3 className="register_error">{error}</h3>
-                }
-
                 <form onSubmit={handleSubmit}>
+                    {
+                        error && <h3 className="register_error">{error}</h3>
+                    }
+
                     <div className="input_field">
                         <input
                             type="email"
@@ -58,6 +73,10 @@ export default function Register() {
 
                     <button className="primary_button" type="submit">Registrati</button>
                 </form>
+
+                <div className="auth_link">
+                    <p>Sei già registrato? <Link to="/">Accedi</Link> </p>
+                </div>
             </div>
         </>
     )
