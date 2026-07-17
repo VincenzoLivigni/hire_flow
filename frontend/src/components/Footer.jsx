@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import logo from "../assets/logo_hire_flow.png"
 
 export default function Footer() {
 
@@ -7,7 +8,7 @@ export default function Footer() {
             <footer>
                 <div className="footer_left">
                     <NavLink to="/dashboard" className="logo">
-                        <i className="bi bi-briefcase-fill"></i>
+                        <img src={logo} alt="logo" className="app_logo" />
                         HireFlow
                     </NavLink>
                 </div>

@@ -8,6 +8,7 @@ import ApplicationFilters from "../components/ApplicationFilters";
 import ApplicationBoard from "../components/ApplicationBoard";
 import Footer from "../components/Footer";
 import Alert from "../components/Alert";
+import logo from "../assets/logo_hire_flow.png"
 
 export default function Dashboard() {
 
@@ -16,16 +17,22 @@ export default function Dashboard() {
     const navigate = useNavigate()
 
     const [applications, setApplications] = useState([])
+    const [loading, setLoading] = useState(true)
 
     // CREO UNA NUOVA APPLICATION
     async function fetchApplications() {
         try {
+            setLoading(true)
+
             const data = await getAllApplications()
 
             setApplications(data)
         }
         catch (err) {
             console.log("Error:", err)
+        }
+        finally {
+            setLoading(false)
         }
     }
 
@@ -103,12 +110,18 @@ export default function Dashboard() {
                 resetFilters={resetFilters}
             />
 
-            <ApplicationBoard
-                applications={filteredApplications}
-                onUpdate={fetchApplications}
-                onDelete={fetchApplications}
-                showAlert={showAlert}
-            />
+            {
+                loading ? (
+                    <p className="loading_message">Caricamento candidature...</p>
+                ) : (
+                    <ApplicationBoard
+                        applications={filteredApplications}
+                        onUpdate={fetchApplications}
+                        onDelete={fetchApplications}
+                        showAlert={showAlert}
+                    />
+                )
+            }
 
             <Footer />
 

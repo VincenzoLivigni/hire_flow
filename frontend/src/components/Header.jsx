@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import logo from "../assets/logo_hire_flow.png"
 
 export default function Header() {
 
@@ -14,7 +15,7 @@ export default function Header() {
             <header>
                 <nav className="app_navbar">
                     <NavLink to="/dashboard" className="logo">
-                        <i className="bi bi-briefcase-fill"></i>
+                        <img src={logo} alt="logo" className="app_logo" />
                         HireFlow
                     </NavLink>
 
