@@ -578,6 +578,41 @@ footer span {
     transform: translateY(-2px);
 }
 
+/* ##### PAGINA NON TROVATA ##### */
+.not_found_container {
+    text-align: center;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.app_error {
+    width: 200px;
+}
+
+.not_found_container p {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.not_found_container strong {
+    font-size: 3rem;
+    color: #1f2937;
+    line-height: 1;
+}
+
+.not_found_container a {
+    font-size: 1.1rem;
+    color: #4f46e5;
+}
+
 /* ##### RESPONSIVE ##### */
 
 /* TABLET */
