@@ -1,6 +1,6 @@
 import ApplicationCard from "./ApplicationCard"
 
-export default function ApplicationColumn({ status, applications, onDelete, onUpdate }) {
+export default function ApplicationColumn({ status, applications, onDelete, onUpdate, showAlert }) {
 
     const filtered = applications.filter((a) => a.status === status)
 
@@ -16,6 +16,7 @@ export default function ApplicationColumn({ status, applications, onDelete, onUp
                             application={a}
                             onDelete={onDelete}
                             onUpdate={onUpdate}
+                            showAlert={showAlert}
                         />
                     ))
                 }

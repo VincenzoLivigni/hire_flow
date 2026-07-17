@@ -7,6 +7,7 @@ import ApplicationForm from "../components/ApplicationForm";
 import ApplicationFilters from "../components/ApplicationFilters";
 import ApplicationBoard from "../components/ApplicationBoard";
 import Footer from "../components/Footer";
+import Alert from "../components/Alert";
 
 export default function Dashboard() {
 
@@ -66,11 +67,28 @@ export default function Dashboard() {
         setFilterStatus("Tutti")
     }
 
+    // Alert 
+    const [alert, setAlert] = useState(null)
+
+    function showAlert(message, type) {
+        setAlert({
+            message,
+            type
+        })
+
+        setTimeout(() => {
+            setAlert(null)
+        }, 2000)
+    }
+
     return (
         <>
             <Header />
 
-            <ApplicationForm onCreated={fetchApplications} />
+            <ApplicationForm
+                onCreated={fetchApplications}
+                showAlert={showAlert}
+            />
 
             <ApplicationFilters
                 searchCompany={searchCompany}
@@ -89,9 +107,14 @@ export default function Dashboard() {
                 applications={filteredApplications}
                 onUpdate={fetchApplications}
                 onDelete={fetchApplications}
+                showAlert={showAlert}
             />
 
             <Footer />
+
+            <Alert
+                alert={alert}
+            />
         </>
     )
 }

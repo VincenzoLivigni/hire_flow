@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { updateApplication } from "../services/api"
 
-export default function EditApplicationModal({ application, onClose, onUpdate }) {
+export default function EditApplicationModal({ application, onClose, onUpdate, showAlert }) {
 
     const [company, setCompany] = useState(application.company_name)
     const [role, setRole] = useState(application.role)
@@ -26,6 +26,7 @@ export default function EditApplicationModal({ application, onClose, onUpdate })
 
             onClose()
             onUpdate()
+            showAlert("Candidatura modificata con successo!", "edit")
         }
         catch (err) {
             console.log("Error: ", err)

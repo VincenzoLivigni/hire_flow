@@ -2,7 +2,7 @@ import { useState } from "react";
 import DeleteApplicationModal from "./DeleteApplicationModal";
 import EditApplicationModal from "./EditApplicationModal";
 
-export default function ApplicationCard({ application, onDelete, onUpdate }) {
+export default function ApplicationCard({ application, onDelete, onUpdate, showAlert }) {
 
     // MODIFICO UNA APPLICATION
     const [editApplication, setEditApplication] = useState(false)
@@ -69,6 +69,7 @@ export default function ApplicationCard({ application, onDelete, onUpdate }) {
                         application={application}
                         onClose={() => setEditApplication(false)}
                         onUpdate={onUpdate}
+                        showAlert={showAlert}
                     />
                 )
             }
@@ -79,6 +80,7 @@ export default function ApplicationCard({ application, onDelete, onUpdate }) {
                         application={application}
                         onClose={() => setConfirmDelete(false)}
                         onDelete={onDelete}
+                        showAlert={showAlert}
                     />
                 )
             }

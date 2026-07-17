@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { createApplication } from "../services/api"
 
-export default function ApplicationForm({ onCreated }) {
+export default function ApplicationForm({ onCreated, showAlert }) {
 
     // FORM
     const [company, setCompany] = useState("")
@@ -27,6 +27,8 @@ export default function ApplicationForm({ onCreated }) {
             setNotes("")
 
             onCreated()
+
+            showAlert("Candidatura aggiunta con successo!", "add")
         }
         catch (err) {
             console.log("Error:", err)

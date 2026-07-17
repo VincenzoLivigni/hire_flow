@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { GlobalContext } from "../contexts/GlobalContext"
 import { deleteApplication } from "../services/api"
 
-export default function DeleteApplicationModal({ application, onClose, onDelete }) {
+export default function DeleteApplicationModal({ application, onClose, onDelete, showAlert }) {
 
     async function handleDelete() {
         try {
@@ -10,6 +10,7 @@ export default function DeleteApplicationModal({ application, onClose, onDelete 
 
             onClose()
             onDelete()
+            showAlert("Candidatura eliminata con successo!", "delete")
         }
         catch (err) {
             console.log("Error: ", err)

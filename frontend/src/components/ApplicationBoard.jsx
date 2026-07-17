@@ -1,6 +1,6 @@
 import ApplicationColumn from "./ApplicationColumn"
 
-export default function ApplicationBoard({ applications, onDelete, onUpdate }) {
+export default function ApplicationBoard({ applications, onDelete, onUpdate, showAlert }) {
 
     const columns = [
         {
@@ -40,6 +40,7 @@ export default function ApplicationBoard({ applications, onDelete, onUpdate }) {
                                     applications={applications}
                                     onUpdate={onUpdate}
                                     onDelete={onDelete}
+                                    showAlert={showAlert}
                                 />
                             </div>
                         ))
