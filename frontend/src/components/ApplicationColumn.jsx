@@ -2,15 +2,15 @@ import ApplicationCard from "./ApplicationCard"
 
 export default function ApplicationColumn({ status, applications, onDelete, onUpdate, showAlert }) {
 
-    const filtered = applications.filter((a) => a.status === status)
+    const filteredApplications = applications.filter((a) => a.status === status)
 
     return (
         <>
-            {/* colonne */}
+            {/* candidature della colonna */}
             <div className="column">
 
                 {
-                    filtered.map((a) => (
+                    filteredApplications.map((a) => (
                         <ApplicationCard
                             key={a.id}
                             application={a}

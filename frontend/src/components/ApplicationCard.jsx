@@ -4,10 +4,10 @@ import EditApplicationModal from "./EditApplicationModal";
 
 export default function ApplicationCard({ application, onDelete, onUpdate, showAlert }) {
 
-    // MODIFICO UNA APPLICATION
+    // Modifico una candidatura
     const [editApplication, setEditApplication] = useState(false)
 
-    // ELIMINO UNA APPLICATION
+    // Elimino una candidatura
     const [confirmDelete, setConfirmDelete] = useState(false)
 
     // note
@@ -33,7 +33,7 @@ export default function ApplicationCard({ application, onDelete, onUpdate, showA
                 {/* link alla candidatura */}
                 <p>
                     <strong>Link: </strong>
-                    <a href={application.link_job} target="_blank">Visualizza offerta</a>
+                    <a href={application.link_job} target="_blank" rel="noopener noreferrer">Visualizza offerta</a>
                 </p>
 
                 {/* note */}
@@ -63,6 +63,7 @@ export default function ApplicationCard({ application, onDelete, onUpdate, showA
 
             </div>
 
+            {/* modale modifica candidatura */}
             {
                 editApplication && (
                     <EditApplicationModal
@@ -74,6 +75,7 @@ export default function ApplicationCard({ application, onDelete, onUpdate, showA
                 )
             }
 
+            {/* modale elimina candidatura */}
             {
                 confirmDelete && (
                     <DeleteApplicationModal

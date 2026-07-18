@@ -24,9 +24,9 @@ export default function EditApplicationModal({ application, onClose, onUpdate, s
                 status
             )
 
+            showAlert("Candidatura modificata con successo!", "edit")
             onClose()
             onUpdate()
-            showAlert("Candidatura modificata con successo!", "edit")
         }
         catch (err) {
             console.log("Error: ", err)
@@ -42,6 +42,7 @@ export default function EditApplicationModal({ application, onClose, onUpdate, s
 
                         <div className="row">
 
+                            {/* input modifica azienda */}
                             <div className="col-sm-12 col-md-6">
                                 <div className="input_field">
                                     <input
@@ -54,6 +55,7 @@ export default function EditApplicationModal({ application, onClose, onUpdate, s
                                 </div>
                             </div>
 
+                            {/* input modifica posizione */}
                             <div className="col-sm-12 col-md-6">
                                 <div className="input_field">
                                     <input
@@ -66,6 +68,7 @@ export default function EditApplicationModal({ application, onClose, onUpdate, s
                                 </div>
                             </div>
 
+                            {/* input modifica luogo */}
                             <div className="col-sm-12 col-md-6">
                                 <div className="input_field">
                                     <input
@@ -78,6 +81,7 @@ export default function EditApplicationModal({ application, onClose, onUpdate, s
                                 </div>
                             </div>
 
+                            {/* input modifica stato */}
                             <div className="col-sm-12 col-md-6">
                                 <div className="input_field">
                                     <select
@@ -94,6 +98,7 @@ export default function EditApplicationModal({ application, onClose, onUpdate, s
                                 </div>
                             </div>
 
+                            {/* input modifica link candidatura */}
                             <div className="col-12">
                                 <div className="input_field">
                                     <input
@@ -106,6 +111,7 @@ export default function EditApplicationModal({ application, onClose, onUpdate, s
                                 </div>
                             </div>
 
+                            {/* input modifica note */}
                             <div className="col-12">
                                 <div className="input_field">
                                     <textarea

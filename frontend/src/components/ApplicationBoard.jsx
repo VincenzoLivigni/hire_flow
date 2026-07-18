@@ -2,7 +2,7 @@ import ApplicationColumn from "./ApplicationColumn"
 
 export default function ApplicationBoard({ applications, onDelete, onUpdate, showAlert }) {
 
-    // stats
+    // calcolo statistiche candidature
     const candidatureInviate = applications.filter((i) => i.status === "applied").length
     const colloqui = applications.filter((c) => c.status === "interview").length
     const offerte = applications.filter((i) => i.status === "offer").length
@@ -31,8 +31,6 @@ export default function ApplicationBoard({ applications, onDelete, onUpdate, sho
         }
     ]
 
-
-
     return (
         <>
             <div className="board">
@@ -47,8 +45,8 @@ export default function ApplicationBoard({ applications, onDelete, onUpdate, sho
                                     <span>{column.stats}</span>
                                 </div>
 
+                                {/* contenuto colonne */}
                                 <ApplicationColumn
-                                    key={column.status}
                                     status={column.status}
                                     applications={applications}
                                     onUpdate={onUpdate}

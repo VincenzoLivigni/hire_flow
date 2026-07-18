@@ -1,5 +1,3 @@
-import { useContext } from "react"
-import { GlobalContext } from "../contexts/GlobalContext"
 import { deleteApplication } from "../services/api"
 
 export default function DeleteApplicationModal({ application, onClose, onDelete, showAlert }) {
@@ -8,9 +6,9 @@ export default function DeleteApplicationModal({ application, onClose, onDelete,
         try {
             await deleteApplication(application.id)
 
+            showAlert("Candidatura eliminata con successo!", "delete")
             onClose()
             onDelete()
-            showAlert("Candidatura eliminata con successo!", "delete")
         }
         catch (err) {
             console.log("Error: ", err)

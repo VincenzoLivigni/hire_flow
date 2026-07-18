@@ -3,7 +3,6 @@ import { createApplication } from "../services/api"
 
 export default function ApplicationForm({ onCreated, showAlert }) {
 
-    // FORM
     const [company, setCompany] = useState("")
     const [role, setRole] = useState("")
     const [location, setLocation] = useState("")
@@ -26,9 +25,9 @@ export default function ApplicationForm({ onCreated, showAlert }) {
             setLink_job("")
             setNotes("")
 
-            onCreated()
-
             showAlert("Candidatura aggiunta con successo!", "add")
+
+            onCreated()
         }
         catch (err) {
             console.log("Error:", err)
@@ -44,6 +43,8 @@ export default function ApplicationForm({ onCreated, showAlert }) {
                 <form onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-sm-12 col-md-6 col-lg-3">
+
+                            {/* input azienda */}
                             <div className="input_field">
                                 <input
                                     type="text"
@@ -55,6 +56,7 @@ export default function ApplicationForm({ onCreated, showAlert }) {
                             </div>
                         </div>
 
+                        {/* input posizione */}
                         <div className="col-sm-12 col-md-6 col-lg-3">
                             <div className="input_field">
                                 <input
@@ -67,6 +69,7 @@ export default function ApplicationForm({ onCreated, showAlert }) {
                             </div>
                         </div>
 
+                        {/* input luogo */}
                         <div className="col-sm-12 col-md-6 col-lg-3">
                             <div className="input_field">
                                 <input
@@ -79,6 +82,7 @@ export default function ApplicationForm({ onCreated, showAlert }) {
                             </div>
                         </div>
 
+                        {/* input link candidatura */}
                         <div className="col-sm-12 col-md-6 col-lg-3">
                             <div className="input_field">
                                 <input
@@ -92,6 +96,7 @@ export default function ApplicationForm({ onCreated, showAlert }) {
                         </div>
                     </div>
 
+                    {/* input note */}
                     <div className="form_application_bottom">
                         <div className="col-12">
                             <div className="input_field">
@@ -108,7 +113,9 @@ export default function ApplicationForm({ onCreated, showAlert }) {
                     <div className="col-sm-12 col-md-6 col-lg-3">
                         <button className="primary_button" type="submit">Aggiungi</button>
                     </div>
+
                 </form>
+
             </div>
         </>
     )

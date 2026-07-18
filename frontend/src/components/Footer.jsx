@@ -18,11 +18,11 @@ export default function Footer() {
                 </div>
 
                 <div className="footer_social">
-                    <a href="https://www.linkedin.com/in/vincenzo-livigni-2206b83a9/" target="_blank">
+                    <a href="https://www.linkedin.com/in/vincenzo-livigni-2206b83a9/" target="_blank" rel="noreferrer">
                         <i className="bi bi-linkedin"></i>
                     </a>
 
-                    <a href="https://github.com/VincenzoLivigni" target="_blank">
+                    <a href="https://github.com/VincenzoLivigni" target="_blank" rel="noreferrer">
                         <i className="bi bi-github"></i>
                     </a>
                 </div>

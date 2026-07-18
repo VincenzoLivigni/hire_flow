@@ -63,7 +63,7 @@ exports.update = (req, res) => {
     }
 
     db.query(
-        "UPDATE applications SET company_name = ?, role = ?, location = ?, notes = ?, link_job = ?, status = ? WHERE id = ? ",
+        "UPDATE applications SET company_name = ?, role = ?, location = ?, notes = ?, link_job = ?, status = ? WHERE id = ? AND user_id = ? ",
         [company_name, role, location, notes, link_job, status, id],
         (err) => {
             if (err) {
@@ -80,7 +80,7 @@ exports.delete = (req, res) => {
     const { id } = req.params
 
     db.query(
-        "DELETE FROM applications WHERE id = ?",
+        "DELETE FROM applications WHERE id = ? AND user_id = ?",
         [id],
         (err) => {
             if (err) {

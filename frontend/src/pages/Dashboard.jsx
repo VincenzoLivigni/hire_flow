@@ -8,7 +8,6 @@ import ApplicationFilters from "../components/ApplicationFilters";
 import ApplicationBoard from "../components/ApplicationBoard";
 import Footer from "../components/Footer";
 import Alert from "../components/Alert";
-import logo from "../assets/logo_hire_flow.png"
 
 export default function Dashboard() {
 
@@ -19,7 +18,7 @@ export default function Dashboard() {
     const [applications, setApplications] = useState([])
     const [loading, setLoading] = useState(true)
 
-    // CREO UNA NUOVA APPLICATION
+    // Recupero le candidature
     async function fetchApplications() {
         try {
             setLoading(true)
@@ -46,7 +45,7 @@ export default function Dashboard() {
 
     }, [token])
 
-    // FILTRI
+    // Filtri
     const [searchCompany, setSearchCompany] = useState("")
     const [searchRole, setSearchRole] = useState("")
     const [filterLocation, setFilterLocation] = useState("Tutti")

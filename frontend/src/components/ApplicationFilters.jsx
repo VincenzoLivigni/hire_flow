@@ -20,6 +20,8 @@ export default function ApplicationFilters({
                 <div className="filters">
                     <div className="row">
                         <div className="col-sm-12 col-md-6 col-lg-3">
+
+                            {/* filtro cerca azienda */}
                             <div className="input_field">
                                 <input
                                     type="text"
@@ -31,6 +33,7 @@ export default function ApplicationFilters({
                             </div>
                         </div>
 
+                        {/* filtro cerca posizione */}
                         <div className="col-sm-12 col-md-6 col-lg-3">
                             <div className="input_field">
                                 <input
@@ -43,15 +46,13 @@ export default function ApplicationFilters({
                             </div>
                         </div>
 
+                        {/* filtro luogo */}
                         <div className="col-sm-12 col-md-6 col-lg-3">
                             <div className="input_field">
                                 <select
                                     className={filterLocation !== "Tutti" ? "has_value" : ""}
                                     value={filterLocation}
-                                    onChange={(e) => {
-                                        console.log(e.target.value)
-                                        setFilterLocation(e.target.value)
-                                    }}
+                                    onChange={(e) => setFilterLocation(e.target.value)}
                                 >
                                     <option value="Tutti">Tutti</option>
                                     {
@@ -66,6 +67,7 @@ export default function ApplicationFilters({
                             </div>
                         </div>
 
+                        {/* filtro stato */}
                         <div className="col-sm-12 col-md-6 col-lg-3">
                             <div className="input_field">
                                 <select
@@ -89,6 +91,7 @@ export default function ApplicationFilters({
 
                     </div>
                 </div>
+
             </div>
         </>
     )

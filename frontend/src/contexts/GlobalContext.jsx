@@ -5,11 +5,12 @@ export const GlobalContext = createContext()
 
 export function GlobalProvider({ children }) {
 
+    // Stato autenticazione
     const [token, setToken] = useState(
         localStorage.getItem("token") || null
     )
 
-    // REGISTRAZIONE
+    // Registrazione
     const register = async (email, password) => {
         try {
             const data = await registerUser(email, password)
@@ -22,7 +23,7 @@ export function GlobalProvider({ children }) {
         }
     }
 
-    // LOGIN
+    // Login
     const login = async (email, password) => {
         try {
             const data = await loginUser(email, password)
@@ -37,7 +38,7 @@ export function GlobalProvider({ children }) {
         }
     }
 
-    // LOGOUT
+    // Logout
     const logout = () => {
         localStorage.removeItem("token")
         setToken(null)
@@ -45,7 +46,7 @@ export function GlobalProvider({ children }) {
 
     return (
         <GlobalContext.Provider value={{
-            token, setToken, login, logout
+            token, register, login, logout
         }}>
             {children}
         </GlobalContext.Provider>

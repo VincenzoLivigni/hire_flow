@@ -1,6 +1,8 @@
 const API = "http://localhost:3000/api"
 
-// REGISTRAZIONE
+// AUTENTICAZIONE 
+
+// Registrazione
 export async function registerUser(email, password) {
     const res = await fetch(`${API}/auth/register`, {
         method: "POST",
@@ -21,7 +23,7 @@ export async function registerUser(email, password) {
     return data
 }
 
-// LOGIN
+// Login
 export async function loginUser(email, password) {
     const res = await fetch(`${API}/auth/login`, {
         method: "POST",
@@ -42,7 +44,9 @@ export async function loginUser(email, password) {
     return data
 }
 
-// CREO UNA NUOVA APPLICATION
+// CANDIDATURE
+
+// Creo una nuova candidatura
 export async function createApplication(company_name, role, location, notes, link_job) {
     const token = localStorage.getItem("token")
 
@@ -59,9 +63,6 @@ export async function createApplication(company_name, role, location, notes, lin
 
     const data = await res.json()
 
-    console.log(res.status)
-    console.log(data)
-
     if (!res.ok) {
         throw new Error(data.message || "Azienda e posizione sono richiesti!")
     }
@@ -69,7 +70,7 @@ export async function createApplication(company_name, role, location, notes, lin
     return data
 }
 
-// RECUPERO TUTTE LE APPLICATION DELL'UTENTE
+// Recupero tutte le candidature
 export async function getAllApplications() {
     const token = localStorage.getItem("token")
 
@@ -90,7 +91,7 @@ export async function getAllApplications() {
     return data
 }
 
-// MODIFICA DI UNA APPLICATION
+// Modifico una candidatura
 export async function updateApplication(id, company_name, role, location, notes, link_job, status) {
     const token = localStorage.getItem("token")
 
@@ -114,7 +115,7 @@ export async function updateApplication(id, company_name, role, location, notes,
     return data
 }
 
-// ELIMINO UNA APPLICATION
+// Elimino una candidatura
 export async function deleteApplication(id) {
     const token = localStorage.getItem("token")
 
