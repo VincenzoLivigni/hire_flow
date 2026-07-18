@@ -123,7 +123,7 @@ Key aspects covered:
 | ![Login](./screenshots/login.png) | ![Register](./screenshots/register.png) |
 
 |                  Dashboard                |              404 Page              |
-| :---------------------------------------: | ---------------------------------: |
+| :---------------------------------------: | :--------------------------------: |
 | ![Dashboard](./screenshots/dashboard.png) | ![404 Page](./screenshots/404.png) |
 
 |           Edit Application Modal            |            Delete Confirmation Modal            |
