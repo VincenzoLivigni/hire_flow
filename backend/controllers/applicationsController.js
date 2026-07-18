@@ -50,6 +50,7 @@ exports.update = (req, res) => {
     const { id } = req.params
     // dati modificabili
     const { company_name, role, location, notes, link_job, status } = req.body
+    const user_id = req.user.id
 
     // stati dell'application
     const allowed = ["applied", "interview", "offer", "rejected"]
@@ -64,7 +65,7 @@ exports.update = (req, res) => {
 
     db.query(
         "UPDATE applications SET company_name = ?, role = ?, location = ?, notes = ?, link_job = ?, status = ? WHERE id = ? AND user_id = ? ",
-        [company_name, role, location, notes, link_job, status, id],
+        [company_name, role, location, notes, link_job, status, id, user_id],
         (err) => {
             if (err) {
                 console.log(err)
@@ -78,10 +79,11 @@ exports.update = (req, res) => {
 // ELIMINO UNA APPLICATION
 exports.delete = (req, res) => {
     const { id } = req.params
+    const user_id = req.user.id
 
     db.query(
         "DELETE FROM applications WHERE id = ? AND user_id = ?",
-        [id],
+        [id, user_id],
         (err) => {
             if (err) {
                 console.log(err)
