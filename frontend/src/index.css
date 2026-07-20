@@ -278,6 +278,14 @@ h1 {
     margin-top: 1.5rem;
 }
 
+.empty_results {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    color: #8f8fa0;
+    padding: 2.5rem;
+}
+
 .board_columns {
     display: flex;
     gap: 1rem;

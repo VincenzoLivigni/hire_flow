@@ -113,12 +113,16 @@ export default function Dashboard() {
                 loading ? (
                     <p className="loading_message">Caricamento candidature...</p>
                 ) : (
-                    <ApplicationBoard
-                        applications={filteredApplications}
-                        onUpdate={fetchApplications}
-                        onDelete={fetchApplications}
-                        showAlert={showAlert}
-                    />
+                    filteredApplications.length === 0 ? (
+                        <p className="empty_results">Nessuna candidatura trovata</p>
+                    ) : (
+                        <ApplicationBoard
+                            applications={filteredApplications}
+                            onUpdate={fetchApplications}
+                            onDelete={fetchApplications}
+                            showAlert={showAlert}
+                        />
+                    )
                 )
             }
 
